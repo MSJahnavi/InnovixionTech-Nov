@@ -1,0 +1,61 @@
+<!-- templates/edit_contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Contact</h1>
+    <form action="{{ url_for('update_contact', contact_id=contact['id']) }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ contact['name'] }}" required>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" value="{{ contact['phone'] }}" required>
+        <button type="submit">Update Contact</button>
+    </form>
+</body>
+</html>
